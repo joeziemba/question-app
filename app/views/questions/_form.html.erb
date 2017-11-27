@@ -1,0 +1,31 @@
+<%= form_for(question) do |f| %>
+  <div class="field">
+    <%= f.label :title %><br />
+    <%= f.text_field :title %>
+    <% if @question.errors["title"] %>
+      <ul>
+        <% @question.errors["title"].each do |error| %>
+        <li><%= "Title #{error}" %></li>
+        <% end %>
+      </ul>
+    <% end %>
+  </div>
+
+  <div class="field">
+    <%= f.label :description %><br/>
+    <%= f.text_field :description %>
+
+    <% if @question.errors["description"] %>
+      <ul>
+        <% @question.errors["description"].each do |error| %>
+        <li><%= "Description #{error}" %></li>
+        <% end %>
+      </ul>
+    <% end %>
+
+  </div>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
