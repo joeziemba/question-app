@@ -1,5 +1,5 @@
 <h1><%= @question.title %></h1>
-<p><%= @question.description %></p>
+<%= markdown(@question.description) %>
 
 <%= button_to "Edit", edit_question_path(@question), method: :get %>
 <%= button_to "Delete", @question, method: :delete %>
@@ -7,7 +7,7 @@
 <h3>Answers:</h3>
 <% @answers.each do |answer| %>
 <div class="answer">
-  <%= simple_format(answer.body) %>
+  <%= markdown(answer.body) %>
 </div>
 <% end %>
 
