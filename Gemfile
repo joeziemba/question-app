@@ -34,6 +34,9 @@ gem 'jbuilder', '~> 2.5'
 # Use RedCarpet for Markdown support. Read more: https://github.com/vmg/redcarpet
 gem 'redcarpet'
 
+# Use Omiauth for GitHub authentication
+gem 'omniauth-github'
+
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
