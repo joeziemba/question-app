@@ -7,6 +7,10 @@ class QuestionsController < ApplicationController
     @question = Question.find(params[:id])
     @answers = @question.answers
     @answer = Answer.new
+    if @answers.any?{|a| a[:accepted] == true}
+      @selected_answer = @answers.find{|a| a[:accepted] == true}
+      @answers = @question.answers.where(accepted: false)
+    end
   end
 
   def new

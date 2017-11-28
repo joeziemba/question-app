@@ -11,6 +11,17 @@ class AnswersController < ApplicationController
     end
   end
 
+  def update
+    @answer = Answer.update(params[:id], {accepted: true})
+    if @answer.save
+      flash[notice] = "Answer accepted"
+      redirect_to @answer.question
+    else
+      flash[notice] = "Answer not accepted"
+      redirect_to @answer.question
+    end
+  end
+
   private
 
   def answer_params

@@ -5,10 +5,20 @@
 <%= button_to "Delete", @question, method: :delete %>
 
 <h3>Answers:</h3>
+
+<% if @selected_answer %>
+  <div class="accepted-answer">
+    <%= markdown(@selected_answer.body) %>
+  </div>
+<% end %>
+
 <% @answers.each do |answer| %>
-<div class="answer">
-  <%= markdown(answer.body) %>
-</div>
+    <div class="answer">
+      <%= markdown(answer.body) %>
+      <% if !@selected_answer %>
+        <%= button_to "Accept Answer", answer, method: :patch %>
+      <% end %>
+    </div>
 <% end %>
 
 <h4>Submit an Answer:</h4>

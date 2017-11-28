@@ -4,5 +4,5 @@ Rails.application.routes.draw do
     resources :answers, only: [:index, :new, :create]
   end
 
-  resources :answers, only: [:show]
+  resources :answers, only: [:show, :update]
 end
