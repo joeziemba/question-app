@@ -10,6 +10,11 @@
 
   <body>
     <%= link_to 'Home', questions_path %>
+    <% if current_user %>
+      Signed in as <%= current_user.username %> <%= link_to 'Sign Out', signout_path, method: :delete %>
+    <% else %>
+      <%= link_to 'Sign In', "auth/github" %>
+    <% end %>
     <%= yield %>
   </body>
 </html>
