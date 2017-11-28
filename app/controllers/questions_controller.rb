@@ -37,8 +37,6 @@ class QuestionsController < ApplicationController
   end
 
   def destroy
-    puts "Hit Question Destroy"
-    binding.pry
     @question = Question.find(params[:id])
     @answers = @question.answers
     @question.destroy
