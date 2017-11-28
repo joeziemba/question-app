@@ -7,6 +7,7 @@ class AnswersController < ApplicationController
       redirect_to @question
     else
       @answers = @question.answers
+      @user = @question.user
       render :template => "questions/show"
     end
   end

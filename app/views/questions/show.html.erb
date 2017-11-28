@@ -1,9 +1,11 @@
 <h1><%= @question.title %></h1>
 <%= markdown(@question.description) %>
+Posted by <%= @user.username %> on <%= @question.created_at %>
 
-<%= button_to "Edit", edit_question_path(@question), method: :get %>
-<%= button_to "Delete", @question, method: :delete %>
-
+<% if current_user == @user %>
+  <%= button_to "Edit", edit_question_path(@question), method: :get %>
+  <%= button_to "Delete", @question, method: :delete %>
+<% end %>
 <h3>Answers:</h3>
 
 <% if @selected_answer %>
@@ -15,7 +17,7 @@
 <% @answers.each do |answer| %>
     <div class="answer">
       <%= markdown(answer.body) %>
-      <% if !@selected_answer %>
+      <% if !@selected_answer && current_user == @user %>
         <%= button_to "Accept Answer", answer, method: :patch %>
       <% end %>
     </div>

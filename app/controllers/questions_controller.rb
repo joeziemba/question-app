@@ -5,12 +5,13 @@ class QuestionsController < ApplicationController
 
   def show
     @question = Question.find(params[:id])
-    @answers = @question.answers
+    @answers = @question.answers.order(:created_at)
     @answer = Answer.new
     if @answers.any?{|a| a[:accepted] == true}
       @selected_answer = @answers.find{|a| a[:accepted] == true}
       @answers = @question.answers.where(accepted: false)
     end
+    @user = @question.user
   end
 
   def new
