@@ -29,12 +29,21 @@ class QuestionsController < ApplicationController
 
   def update
     @question = Question.update(params[:id], question_params)
-    # binding.pry
     if @question.save
       redirect_to @question
     else
       render :edit
     end
+  end
+
+  def destroy
+    puts "Hit Question Destroy"
+    binding.pry
+    @question = Question.find(params[:id])
+    @answers = @question.answers
+    @question.destroy
+    @answers.destroy
+    redirect_to questions_path
   end
 
   private
