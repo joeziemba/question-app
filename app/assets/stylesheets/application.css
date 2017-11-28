@@ -13,3 +13,18 @@
  *= require_tree .
  *= require_self
  */
+
+.answer{
+  padding: 15px 0;
+  margin-left: 20px;
+  line-height:150%;
+  border-bottom: 1px solid #ccc;
+}
+
+.answer:last-of-type {
+  border: none;
+}
+
+.answer p {
+  margin: 3px;
+}

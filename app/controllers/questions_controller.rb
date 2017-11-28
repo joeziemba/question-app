@@ -5,6 +5,8 @@ class QuestionsController < ApplicationController
 
   def show
     @question = Question.find(params[:id])
+    @answers = @question.answers
+    @answer = Answer.new
   end
 
   def new
@@ -17,8 +19,21 @@ class QuestionsController < ApplicationController
     if @question.save
       redirect_to @question
     else
-      binding.pry
       render :new
+    end
+  end
+
+  def edit
+    @question = Question.find(params[:id])
+  end
+
+  def update
+    @question = Question.update(params[:id], question_params)
+    # binding.pry
+    if @question.save
+      redirect_to @question
+    else
+      render :edit
     end
   end
 
