@@ -1,3 +1,4 @@
 <h1>Edit</h1>
-
+<%= button_to "Delete this Question", @question, method: :delete %>
+<br/>
 <%= render "questions/form", question: @question %>
