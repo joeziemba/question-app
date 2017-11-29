@@ -1,3 +1,22 @@
 // Place all the styles related to the Questions controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+
+
+
+// For Answers displayed on Questions View
+.answer{
+  padding: 15px 0;
+  margin-left: 20px;
+  line-height:150%;
+  border-bottom: 1px solid #ccc;
+}
+
+.answer:last-of-type {
+  border: none;
+}
+
+.answer p {
+  margin: 3px;
+}
